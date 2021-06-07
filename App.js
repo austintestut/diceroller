@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Dice from "./Dice.js";
+import Title from'./Title.js';
 
 class App extends React.Component {
   constructor() {
@@ -26,8 +27,9 @@ class App extends React.Component {
     const { count, rolled } = this.state;
     return (
       <View style={styles.container}>
+        <Title />
         <Dice roll={this.roll} />
-        {rolled && <div>Roll: {count}</div>}
+        {rolled && <Text>Roll: {count}</Text>}
         <StatusBar style="auto" />
       </View>
     );

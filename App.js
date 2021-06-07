@@ -6,11 +6,28 @@ import Dice from "./Dice.js";
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      count: 0,
+      rolled: false,
+    };
+    this.roll = this.roll.bind(this);
   }
+
+  roll(max) {
+    max = Math.floor(max);
+    let rolledNumber = Math.floor(Math.random() * (max + 1));
+    this.setState({
+      rolled: true,
+      count: rolledNumber,
+    });
+  }
+
   render() {
+    const { count, rolled } = this.state;
     return (
       <View style={styles.container}>
-        <Dice />
+        <Dice roll={this.roll} />
+        {rolled && <div>Roll: {count}</div>}
         <StatusBar style="auto" />
       </View>
     );

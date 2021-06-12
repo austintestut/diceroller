@@ -28,8 +28,7 @@ class App extends React.Component {
     return (
       <View style={styles.container}>
         <Title />
-        <Dice roll={this.roll} />
-        {rolled && <Text>Roll: {count}</Text>}
+        <Dice roll={this.roll} rolled={rolled} count={count}/>
         <StatusBar style="auto" />
       </View>
     );

@@ -6,15 +6,25 @@ import {
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
+import images from "./assets/assets.js";
 
-export default function Die({ number, name }) {
+export default function Die({ num, name }) {
   return (
-    <TouchableWithoutFeedback
-      onPress={() => {
-        roll(number);
-      }}
-    >
-      <Image source={require(`./assets/${name}.png`)} style={styles.die} />
-    </TouchableWithoutFeedback>
+    <View>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          roll(num);
+        }}
+      >
+        <Image source={images[name]} />
+      </TouchableWithoutFeedback>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  die: {
+    height: 150,
+    width: 150,
+  },
+});

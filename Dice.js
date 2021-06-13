@@ -11,15 +11,16 @@ import Die from "./Die.js";
 const Dice = ({ roll, rolled, count }) => {
   return (
     <View style={styles.container}>
-      <Text>Testing</Text>
-      <Die style={styles.die} roll={roll} num={4} name={"d4"} />
-      <Die style={styles.die} roll={roll} num={6} name={"d6"} />
-      <Die style={styles.die} roll={roll} num={8} name={"d8"} />
-      <Die style={styles.die} roll={roll} num={10} name={"d10"} />
-      <Die style={styles.die} roll={roll} num={10} name={"percent"} />
-      <Die style={styles.die} roll={roll} num={12} name={"d12"} />
-      <Die style={styles.die} roll={roll} num={20} name={"d20"} />
-      <View style={styles.die}>{rolled && <Text>Roll: {count}</Text>}</View>
+      <View style={styles.rollCount}>
+        {rolled && <Text>Roll: {count}</Text>}
+      </View>
+      <Die roll={roll} num={4} name={"d4"} />
+      <Die roll={roll} num={6} name={"d6"} />
+      <Die roll={roll} num={8} name={"d8"} />
+      <Die roll={roll} num={10} name={"d10"} />
+      <Die roll={roll} num={10} name={"percent"} />
+      <Die roll={roll} num={12} name={"d12"} />
+      <Die roll={roll} num={20} name={"d20"} />
     </View>
   );
 };
@@ -31,12 +32,16 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     height: "70%",
     marginTop: "15%",
-    marginLeft: "5%",
+    marginLeft: "auto",
+    marginRight: "auto",
     width: "90%",
   },
-  die: {
-    height: 50,
-    width: 50,
+  rollCount: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    margin: "10%",
+    height: 100,
+    width: 100,
   },
 });
 

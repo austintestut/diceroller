@@ -8,23 +8,30 @@ import {
 } from "react-native";
 import images from "./assets/assets.js";
 
-export default function Die({ num, name }) {
+export default function Die({ roll, num, name }) {
   return (
-    <View>
+    <View style={styles.view}>
       <TouchableWithoutFeedback
         onPress={() => {
           roll(num);
         }}
       >
-        <Image source={images[name]} />
+        <Image source={images[name]} style={styles.die} />
       </TouchableWithoutFeedback>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  die: {
-    height: 150,
-    width: 150,
+  view: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    margin: "10%",
+    height: 100,
+    width: 100,
   },
+  die: {
+    height: 110,
+    width: 110,
+  }
 });

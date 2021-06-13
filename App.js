@@ -14,9 +14,12 @@ class App extends React.Component {
     this.roll = this.roll.bind(this);
   }
 
-  roll(max) {
+  roll(max, percent = null) {
     max = Math.floor(max);
-    let rolledNumber = Math.floor(Math.random() * (max + 1));
+    let rolledNumber = Math.floor(Math.random() * (max) + 1);
+    if (percent) {
+      rolledNumber *= 10;
+    }
     this.setState({
       rolled: true,
       count: rolledNumber,

@@ -13,7 +13,7 @@ export default function Die({ roll, num, name }) {
     <View style={styles.view}>
       <TouchableWithoutFeedback
         onPress={() => {
-          roll(num);
+          name === "percent" ? roll(num, true) : roll(num);
         }}
       >
         <Image source={images[name]} style={styles.die} />
@@ -38,5 +38,7 @@ const styles = StyleSheet.create({
   label: {
     marginLeft: "auto",
     marginRight: "auto",
-  }
+    fontWeight: "600",
+    fontSize: 20,
+  },
 });

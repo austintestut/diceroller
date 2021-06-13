@@ -18,6 +18,7 @@ export default function Die({ roll, num, name }) {
       >
         <Image source={images[name]} style={styles.die} />
       </TouchableWithoutFeedback>
+      <Text style={styles.label}>{name}</Text>
     </View>
   );
 }
@@ -33,5 +34,9 @@ const styles = StyleSheet.create({
   die: {
     height: 110,
     width: 110,
+  },
+  label: {
+    marginLeft: "auto",
+    marginRight: "auto",
   }
 });

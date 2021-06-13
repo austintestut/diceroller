@@ -12,7 +12,7 @@ const Dice = ({ roll, rolled, count }) => {
   return (
     <View style={styles.container}>
       <View style={styles.rollCount}>
-        {rolled && <Text>Roll: {count}</Text>}
+        {rolled && <Text style={styles.rollText}>Roll: {count}</Text>}
       </View>
       <Die roll={roll} num={4} name={"d4"} />
       <Die roll={roll} num={6} name={"d6"} />
@@ -43,6 +43,11 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
   },
+  rollText: {
+    fontWeight: "600",
+    fontSize: 28,
+    margin: "auto",
+  }
 });
 
 export default Dice;

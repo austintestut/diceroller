@@ -1,44 +1,44 @@
 import React from "react";
 import {
-  StyleSheet,
   Text,
   View,
   Image,
   TouchableWithoutFeedback,
 } from "react-native";
+import styled from "styled-components";
 import images from "./assets/assets.js";
 
 export default function Die({ roll, num, name }) {
   return (
-    <View style={styles.view}>
+    <StyledContainer>
       <TouchableWithoutFeedback
         onPress={() => {
           name === "percent" ? roll(num, true) : roll(num);
         }}
       >
-        <Image source={images[name]} style={styles.die} />
+        <StyledDie source={images[name]} />
       </TouchableWithoutFeedback>
-      <Text style={styles.label}>{name}</Text>
-    </View>
+      <StyledLabel>{name}</StyledLabel>
+    </StyledContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  view: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    margin: "10%",
-    height: 100,
-    width: 100,
-  },
-  die: {
-    height: 110,
-    width: 110,
-  },
-  label: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    fontWeight: "600",
-    fontSize: 20,
-  },
-});
+const StyledContainer = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10%;
+  height: 100;
+  width: 100;
+`;
+
+const StyledDie = styled.Image`
+  height: 110;
+  width: 110;
+`;
+
+const StyledLabel = styled.Text`
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 600;
+  font-size: 20;
+`;

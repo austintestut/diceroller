@@ -1,8 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import styled from "styled-components";
 import Dice from "./Dice.js";
-import Title from'./Title.js';
+import Title from "./Title.js";
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends React.Component {
 
   roll(max, percent = null) {
     max = Math.floor(max);
-    let rolledNumber = Math.floor(Math.random() * (max) + 1);
+    let rolledNumber = Math.floor(Math.random() * max + 1);
     if (percent) {
       rolledNumber *= 10;
     }
@@ -29,22 +30,20 @@ class App extends React.Component {
   render() {
     const { count, rolled } = this.state;
     return (
-      <View style={styles.container}>
+      <StyledContainer>
         <Title />
-        <Dice roll={this.roll} rolled={rolled} count={count}/>
+        <Dice roll={this.roll} rolled={rolled} count={count} />
         <StatusBar style="auto" />
-      </View>
+      </StyledContainer>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const StyledContainer = styled.View`
+  flex: 1;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default App;
